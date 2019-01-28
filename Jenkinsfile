@@ -115,7 +115,7 @@ node {
                 output = output.readLines().drop(1).join(" ")
             }
 
-            # Wait 5 minutes for package replication.
+            // Wait 5 minutes for package replication.
             sleep 300
 
             def jsonSlurper = new JsonSlurperClassic()
