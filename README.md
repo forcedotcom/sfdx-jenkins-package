@@ -40,19 +40,21 @@ If any any of these assumptions aren't true, the following steps won't work.
 
     Create an environment variable named `SERVER_KEY_CREDENTALS_ID`.
 
-11) Create the sample package running this command:
+11) Copy all the contents of `package-sfdx-project.json` into `sfdx-project.json` and save.
+
+12) Create the sample package running this command:
 
     `sfdx force:package:create --path force-app/main/default/ --name "Jenkins" --description "Jenkins Package Example" --packagetype Unlocked`
 
-12) Create the first package version.
+13) Create the first package version.
 
     `sfdx force:package:version:create --package "Jenkins" --installationkeybypass --wait 10 --json --targetdevhubusername HubOrg`
 
-13) In the `Jenkinsfile` file update the value in the `PACKAGENAME` variable to be Package Id in your sfdx-project.json file.  This id will start with `0Ho`.
+14) In the `Jenkinsfile` file update the value in the `PACKAGENAME` variable to be Package Id in your sfdx-project.json file.  This id will start with `0Ho`.
 
-14) Commit the updated `sfdx-project.json` and `Jenkinsfile` files.
+15) Commit the updated `sfdx-project.json` and `Jenkinsfile` files.
 
-15) Create a Jenkins pipline with the `Jenkinsfile` included in the root directory of the git repository.
+16) Create a Jenkins pipline with the `Jenkinsfile` included in the root directory of the git repository.
 
 And you should be ready to go! Now when you commit and push a change, your change will kick off a Jenkins build.
 
