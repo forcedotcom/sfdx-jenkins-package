@@ -16,7 +16,7 @@ node {
 
 
     // -------------------------------------------------------------------------
-    // Checkout code from source control.
+    // Check out code from source control.
     // -------------------------------------------------------------------------
 
     stage('checkout source') {
@@ -25,14 +25,14 @@ node {
 
 
     // -------------------------------------------------------------------------
-    // Run all of the enclosed stages with access to the Salesforce
+    // Run all the enclosed stages with access to the Salesforce
     // JWT key credentials.
     // -------------------------------------------------------------------------
 
     withCredentials([file(credentialsId: SERVER_KEY_CREDENTALS_ID, variable: 'server_key_file')]) {
 
         // -------------------------------------------------------------------------
-        // Authorize dev hub with JWT key and give it an alias.
+        // Authorize the Dev Hub org with JWT key and give it an alias.
         // -------------------------------------------------------------------------
 
         stage('Authorize DevHub') {
@@ -44,7 +44,7 @@ node {
 
 
         // -------------------------------------------------------------------------
-        // Create new scratch org to test code in.
+        // Create new scratch org to test your code.
         // -------------------------------------------------------------------------
 
         stage('Create Test Scratch Org') {
@@ -154,7 +154,7 @@ node {
 
 
         // -------------------------------------------------------------------------
-        // Install package in package scratch org.
+        // Install package in scratch org.
         // -------------------------------------------------------------------------
 
         stage('Install Package In Scratch Org') {
@@ -178,7 +178,7 @@ node {
 
 
         // -------------------------------------------------------------------------
-        // Delete package intall scratch org.
+        // Delete package install scratch org.
         // -------------------------------------------------------------------------
 
         stage('Delete Package Install Scratch Org') {
