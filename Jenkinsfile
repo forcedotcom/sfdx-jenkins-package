@@ -19,36 +19,14 @@ node {
     // Check out code from source control.
     // -------------------------------------------------------------------------
 
-    pipeline { 
-    agent any 
-    options {
-        skipStagesAfterUnstable()
-    }
-    stages {
-        stage('Build') { 
-            steps { 
-                sh 'make' 
-            }
-        }
-        stage('Test'){
-            steps {
-                sh 'make check'
-                junit 'reports/**/*.xml' 
-            }
-        }
-        stage('Deploy') {
-            steps {
-                sh 'make publish'
-            }
-        }
-    }
-}
-
-stage('checkout source') {
+    stage('checkout source') {
         checkout scm
     }
 
-
+    //--------------------------------------------------------------------------
+    // Pipeline code
+    //--------------------------------------------------------------------------
+    sfdxBuildPipeline()
     // -------------------------------------------------------------------------
     // Run all the enclosed stages with access to the Salesforce
     // JWT key credentials.
