@@ -9,8 +9,8 @@ node {
     def SERVER_KEY_CREDENTALS_ID=env.SERVER_KEY_CREDENTALS_ID
     def TEST_LEVEL='RunLocalTests'
     def PACKAGE_NAME='0Ho4x00000000OQCAY'
-    def PACKAGE_VERSION
-    def SF_INSTANCE_URL = env.SF_INSTANCE_URL ?: "https://login.salesforce.com"
+    def PACKAGE_VERSION='05i4x00000000KfAAI'
+    def SF_INSTANCE_URL = env.SF_INSTANCE_URL ?: "https://test.salesforce.com"
 
     def toolbelt = tool 'toolbelt'
 
