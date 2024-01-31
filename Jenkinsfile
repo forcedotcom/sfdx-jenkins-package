@@ -8,7 +8,7 @@ node {
     def SF_USERNAME=env.SF_USERNAME
     def SERVER_KEY_CREDENTALS_ID=env.SERVER_KEY_CREDENTALS_ID
     def TEST_LEVEL='RunLocalTests'
-    def PACKAGE_NAME='0Ho1U000000CaUzSAK'
+    def PACKAGE_NAME='0Ho4x00000000OQCAY'
     def PACKAGE_VERSION
     def SF_INSTANCE_URL = env.SF_INSTANCE_URL ?: "https://login.salesforce.com"
 
@@ -19,7 +19,32 @@ node {
     // Check out code from source control.
     // -------------------------------------------------------------------------
 
-    stage('checkout source') {
+    pipeline { 
+    agent any 
+    options {
+        skipStagesAfterUnstable()
+    }
+    stages {
+        stage('Build') { 
+            steps { 
+                sh 'make' 
+            }
+        }
+        stage('Test'){
+            steps {
+                sh 'make check'
+                junit 'reports/**/*.xml' 
+            }
+        }
+        stage('Deploy') {
+            steps {
+                sh 'make publish'
+            }
+        }
+    }
+}
+
+stage('checkout source') {
         checkout scm
     }
 

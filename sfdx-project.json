@@ -7,8 +7,8 @@
         {
             "path": "force-app/main/default",
             "package": "Jenkins",
-            "versionName": "Jenkins - Winter '19",
-            "versionNumber": "1.0.0.NEXT",
+            "versionName": "ver 0.1",
+            "versionNumber": "0.1.0.NEXT",
             "default": false
         }
     ],
@@ -16,7 +16,7 @@
     "sfdcLoginUrl": "https://login.salesforce.com",
     "sourceApiVersion": "44.0",
     "packageAliases": {
-        "Jenkins": "0Ho0N000000CaT3SAK",
-        "Jenkins@1.0.0-1": "04t0N000001E1ksQAC"
+        "Jenkins": "0Ho4x00000000OQCAY",
+        "Jenkins@0.1.0-1": "04t4x000000FCmmAAG"
     }
 }
